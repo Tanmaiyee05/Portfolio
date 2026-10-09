@@ -1,4 +1,4 @@
-Personal Portfolio
+## Personal Portfolio
 
 A responsive, accessible portfolio built with HTML5, CSS3, Bootstrap 5 and JavaScript (ES6+).
 
