@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal portfolio of Tanmaiyee Allani">
+  <title>Tanmaiyee Allani | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Colors used in this project */
+    :root {
+      --orange: #d5360c;
+      --orange-dark: #bf2e08;
+      --ivory: #e6d5bd;
+      --black: #101010;
+      --page-bg: #d5360c;
+      --alt-bg: #bf2e08;
+    }
+    /* Dark mode: only the backgrounds change */
+    body.dark { --page-bg: #101010; --alt-bg: #1c1c1c; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; background: var(--orange); }
+    body { background: var(--page-bg); color: var(--ivory); font-family: "DM Sans", Arial, sans-serif; line-height: 1.7; }
+    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 900; }
+    h1 { font-size: 2.6rem; }
+    h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+    a { color: inherit; }
+    .alt { background: var(--alt-bg); }
+    .small-label { text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; }
+
+    /* Navbar */
+    .navbar { background: var(--page-bg); border-bottom: 2px solid var(--black); }
+    body.dark .navbar { border-bottom-color: var(--ivory); }
+    .navbar-brand { font-family: "Fraunces", serif; font-weight: 900; font-size: 1.4rem; color: var(--ivory); }
+    .nav-link { color: var(--ivory); }
+    .nav-link:hover { color: var(--black); }
+    body.dark .nav-link:hover { color: var(--orange); }
+    .navbar-toggler { border-color: var(--black); background: var(--ivory); }
+
+    /* Buttons */
+    .btn-dark { background: var(--black); border-color: var(--black); color: var(--ivory); }
+    .btn-dark:hover { background: var(--ivory); border-color: var(--ivory); color: var(--black); }
+    .btn-outline-light { border-color: var(--ivory); color: var(--ivory); }
+    .btn-outline-light:hover { background: var(--ivory); color: var(--black); }
+    #filterButtons .btn.active { background: var(--black); border-color: var(--black); color: var(--ivory); }
+
+    /* About box (right side of the home section) */
+    .about-box { background: var(--ivory); color: var(--black); border: 2px solid var(--black); border-radius: 12px; padding: 1.5rem; }
+    .about-box h2 { color: var(--black); font-size: 1.6rem; margin-bottom: 0.75rem; }
+    .about-box p:last-child { margin-bottom: 0; }
+    .avail { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.4rem; line-height: 1.4; }
+    .status { font-size: 0.85rem; min-height: 1.4em; margin-bottom: 0.5rem; color: var(--ivory); }
+
+    /* Cards, table and list: ivory with black text */
+    .card, .box, .list-group-item { background: var(--ivory); color: var(--black); border: 2px solid var(--black); border-radius: 10px; }
+    .box { padding: 0.5rem; }
+    .table { --bs-table-bg: #e6d5bd; --bs-table-color: #101010; --bs-table-border-color: #101010; }
+    .card-title { font-size: 1.3rem; }
+    .card a { font-weight: 700; }
+    .list-group-item { border-radius: 0; }
+
+    /* Form */
+    .form-control { background: var(--ivory); color: var(--black); border: 2px solid var(--black); }
+    .form-control:focus { background: var(--ivory); color: var(--black); border-color: var(--black); box-shadow: none; }
+    .form-control.invalid { border-width: 3px; }
+    .error { color: var(--black); font-weight: 700; font-size: 0.9rem; }
+    body.dark .error { color: var(--orange); }
+        footer { background: var(--black); color: var(--ivory); }
+
+    /* Hide projects that do not match the filter */
+    .hidden { display: none !important; }
+
+    /* Tablet and bigger screens */
+    @media (min-width: 768px) { h1 { font-size: 3.8rem; } h2 { font-size: 2.4rem; } }
+    /* Large screens */
+    @media (min-width: 992px) { h1 { font-size: 4.5rem; } section { padding-top: 4rem !important; padding-bottom: 4rem !important; } }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand" href="#home">Tanmaiyee</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item"><button id="themeBtn" class="btn btn-sm btn-dark ms-lg-3" type="button">Dark Mode</button></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home -->
+    <section id="home" class="py-5">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-md-7">
+            <p class="small-label">Hello, I am</p>
+            <h1>Tanmaiyee Allani</h1>
+            <p class="fs-5 mb-1">CS Student</p>
+            <p>I'm a final year student at Stanley College of Engineering and Technology, Hyderabad.</p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#projects" class="btn btn-dark">View Projects</a>
+              <a href="#contact" class="btn btn-outline-light">Contact Me</a>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div id="about" class="about-box">
+              <h2>About Me</h2>
+              <p>I'm most curious about Generative AI. I love seeing how LLMs can be turned into real and useful tools.</p>
+              <p>I run Simplify AI, a page that explains AI in simple words, and I completed a project internship at Fractal Analytics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education (table) -->
+    <section id="education" class="py-5 alt">
+      <div class="container">
+        <h2>Education</h2>
+        <div class="table-responsive box">
+          <table class="table table-bordered mb-0">
+            <thead><tr><th>Degree</th><th>Institution</th><th>Year</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>B.E. Computer Science &amp; Engineering</td>
+                <td>Stanley College of Engineering &amp; Technology for Women</td>
+                <td>2023 to Present</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-5">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="row g-4">
+          <div class="col-md-4"><div class="card h-100"><div class="card-body">
+            <h3 class="card-title">Languages</h3>
+            <ul><li>Python</li><li>SQL</li></ul>
+          </div></div></div>
+          <div class="col-md-4"><div class="card h-100"><div class="card-body">
+            <h3 class="card-title">AI &amp; ML</h3>
+            <ul><li>Generative AI</li><li>Prompt Engineering</li><li>LLMs</li><li>Machine Learning</li><li>NLP</li></ul>
+          </div></div></div>
+          <div class="col-md-4"><div class="card h-100"><div class="card-body">
+            <h3 class="card-title">Automation</h3>
+            <ul><li>n8n</li><li>GitHub</li></ul>
+          </div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-5 alt">
+      <div class="container">
+        <h2>Projects</h2>
+
+        <div class="d-flex flex-wrap gap-2 mb-4" id="filterButtons">
+          <button class="btn btn-sm btn-dark active" data-filter="all" type="button">All</button>
+          <button class="btn btn-sm btn-outline-light" data-filter="ai" type="button">AI</button>
+          <button class="btn btn-sm btn-outline-light" data-filter="automation" type="button">Automation</button>
+          <button class="btn btn-sm btn-outline-light" data-filter="content" type="button">Content</button>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 project" data-category="ai">
+            <div class="card h-100"><div class="card-body">
+              <h3 class="card-title">Fake News Detection</h3>
+              <p>A machine learning project that classifies news as real or fake, built in a Jupyter Notebook.</p>
+              <a href="https://github.com/Tanmaiyee05/fake-news-detection-ai" target="_blank" rel="noopener">View on GitHub</a>
+            </div></div>
+          </div>
+          <div class="col-md-6 project" data-category="ai content">
+            <div class="card h-100"><div class="card-body">
+              <h3 class="card-title">Simplify AI</h3>
+              <p>An AI education page that explains AI in simple words, one topic at a time, on Instagram and YouTube.</p>
+              <a href="https://www.instagram.com/thesimplify.ai" target="_blank" rel="noopener" class="me-3">Instagram</a>
+              <a href="https://youtube.com/@thesimplify_ai" target="_blank" rel="noopener">YouTube</a>
+            </div></div>
+          </div>
+          <div class="col-md-6 project" data-category="automation content">
+            <div class="card h-100"><div class="card-body">
+              <h3 class="card-title">Content Automation Workflow</h3>
+              <p>An n8n workflow that watches a Google Drive folder. When a new video is added, it uploads it to YouTube and posts a tweet on X with the same caption.</p>
+              <a href="https://github.com/Tanmaiyee05/content_automation_workflow" target="_blank" rel="noopener">View on GitHub</a>
+            </div></div>
+          </div>
+          <div class="col-md-6 project" data-category="ai automation">
+            <div class="card h-100"><div class="card-body">
+              <h3 class="card-title">AI Ticket Classifier</h3>
+              <p>Support ticket system built with GPT-4o Mini and n8n. It sorts messages into billing, technical or feedback, finds the urgency, and replies through Gmail for urgent issues.</p>
+              <a href="https://github.com/Tanmaiyee05/ai-ticket-classifier" target="_blank" rel="noopener">View on GitHub</a>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="py-5">
+      <div class="container">
+        <h2>Achievements</h2>
+        <ul class="list-group">
+          <li class="list-group-item">Project Intern at Fractal Analytics (May 2026 to July 2026)</li>
+          <li class="list-group-item">50+ reels published on Simplify AI</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-5 alt">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="row g-4">
+          <div class="col-md-5">
+            <p class="avail">I'm available. Open to internships, remote or on-site.</p>
+            <p>Have a project or an idea? Send me a message or find me here:</p>
+            <p><a href="https://www.linkedin.com/in/tanmaiyee-allani06" target="_blank" rel="noopener">LinkedIn</a></p>
+            <p><a href="https://github.com/Tanmaiyee05" target="_blank" rel="noopener">GitHub</a></p>
+            <p><a href="https://www.instagram.com/thesimplify.ai" target="_blank" rel="noopener">Instagram</a></p>
+          </div>
+          <div class="col-md-7">
+            <form id="contactForm" novalidate>
+              <div class="mb-3"><label for="name" class="form-label">Name</label><input type="text" id="name" class="form-control"><div class="error" id="nameError"></div></div>
+              <div class="mb-3"><label for="email" class="form-label">Email</label><input type="email" id="email" class="form-control"><div class="error" id="emailError"></div></div>
+              <div class="mb-3"><label for="message" class="form-label">Message</label><textarea id="message" rows="4" class="form-control"></textarea><div class="error" id="messageError"></div><small id="count">0 / 300</small></div>
+              <p class="status" id="formStatus" aria-live="polite"></p>
+              <button type="button" id="sendBtn" class="btn btn-dark">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center py-3">&copy; 2026 Tanmaiyee Allani</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // 1. Dark mode button
+    var themeBtn = document.getElementById("themeBtn");
+    themeBtn.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+      themeBtn.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+    });
+
+    // 2. Project filter
+    var filterButtons = document.querySelectorAll("#filterButtons button");
+    var projects = document.querySelectorAll(".project");
+
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var filter = button.dataset.filter;
+
+        // show which button is selected
+        filterButtons.forEach(function (b) {
+          b.classList.remove("active");
+          b.classList.add("btn-outline-light");
+        });
+        button.classList.add("active");
+        button.classList.remove("btn-outline-light");
+
+        // show or hide each project
+        projects.forEach(function (project) {
+          var categories = project.dataset.category.split(" ");
+          if (filter === "all" || categories.includes(filter)) {
+            project.classList.remove("hidden");
+          } else {
+            project.classList.add("hidden");
+          }
+        });
+      });
+    });
+
+    // 3. Contact form validation
+    var form = document.getElementById("contactForm");
+    var nameInput = document.getElementById("name");
+    var emailInput = document.getElementById("email");
+    var messageInput = document.getElementById("message");
+    var count = document.getElementById("count");
+    var formStatus = document.getElementById("formStatus");
+
+    messageInput.maxLength = 300;
+    messageInput.addEventListener("input", function () {
+      count.textContent = messageInput.value.length + " / 300";
+    });
+
+
+    function showError(input, errorId, text) {
+      document.getElementById(errorId).textContent = text;
+      if (text === "") { input.classList.remove("invalid"); } else { input.classList.add("invalid"); }
+    }
+
+    function sendMessage() {
+      var valid = true;
+      var name = nameInput.value.trim();
+      var email = emailInput.value.trim();
+      var message = messageInput.value.trim();
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (name.length < 3) { showError(nameInput, "nameError", "Name must be at least 3 characters."); valid = false; }
+      else { showError(nameInput, "nameError", ""); }
+
+      if (!emailPattern.test(email)) { showError(emailInput, "emailError", "Please enter a valid email address."); valid = false; }
+      else { showError(emailInput, "emailError", ""); }
+
+      if (message.length < 10) { showError(messageInput, "messageError", "Message must be at least 10 characters."); valid = false; }
+      else { showError(messageInput, "messageError", ""); }
+
+      if (valid) {
+        formStatus.textContent = "Thank you, your message was sent successfully.";
+      } else {
+        formStatus.textContent = "Please fix the errors above and try again.";
+      }
+    }
+
+    // Send button click
+    document.getElementById("sendBtn").addEventListener("click", sendMessage);
+    // Enter key in the name and email boxes
+    [nameInput, emailInput].forEach(function (box) {
+      box.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") { event.preventDefault(); sendMessage(); }
+      });
+    });
+    // normal form submit (just in case)
+    form.addEventListener("submit", function (event) { event.preventDefault(); sendMessage(); });
+  </script>
+</body>
+</html>
