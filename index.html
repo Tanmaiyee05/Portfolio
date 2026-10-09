@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Colors used in this project */
     :root {
       --orange: #d5360c;
       --orange-dark: #bf2e08;
@@ -17,7 +16,6 @@
       --page-bg: #d5360c;
       --alt-bg: #bf2e08;
     }
-    /* Dark mode: only the backgrounds change */
     body.dark { --page-bg: #101010; --alt-bg: #1c1c1c; }
 
     html { scroll-behavior: smooth; scroll-padding-top: 70px; background: var(--orange); }
@@ -29,7 +27,6 @@
     .alt { background: var(--alt-bg); }
     .small-label { text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; }
 
-    /* Navbar */
     .navbar { background: var(--page-bg); border-bottom: 2px solid var(--black); }
     body.dark .navbar { border-bottom-color: var(--ivory); }
     .navbar-brand { font-family: "Fraunces", serif; font-weight: 900; font-size: 1.4rem; color: var(--ivory); }
@@ -38,21 +35,18 @@
     body.dark .nav-link:hover { color: var(--orange); }
     .navbar-toggler { border-color: var(--black); background: var(--ivory); }
 
-    /* Buttons */
     .btn-dark { background: var(--black); border-color: var(--black); color: var(--ivory); }
     .btn-dark:hover { background: var(--ivory); border-color: var(--ivory); color: var(--black); }
     .btn-outline-light { border-color: var(--ivory); color: var(--ivory); }
     .btn-outline-light:hover { background: var(--ivory); color: var(--black); }
     #filterButtons .btn.active { background: var(--black); border-color: var(--black); color: var(--ivory); }
 
-    /* About box (right side of the home section) */
     .about-box { background: var(--ivory); color: var(--black); border: 2px solid var(--black); border-radius: 12px; padding: 1.5rem; }
     .about-box h2 { color: var(--black); font-size: 1.6rem; margin-bottom: 0.75rem; }
     .about-box p:last-child { margin-bottom: 0; }
     .avail { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.4rem; line-height: 1.4; }
     .status { font-size: 0.85rem; min-height: 1.4em; margin-bottom: 0.5rem; color: var(--ivory); }
 
-    /* Cards, table and list: ivory with black text */
     .card, .box, .list-group-item { background: var(--ivory); color: var(--black); border: 2px solid var(--black); border-radius: 10px; }
     .box { padding: 0.5rem; }
     .table { --bs-table-bg: #e6d5bd; --bs-table-color: #101010; --bs-table-border-color: #101010; }
@@ -60,7 +54,6 @@
     .card a { font-weight: 700; }
     .list-group-item { border-radius: 0; }
 
-    /* Form */
     .form-control { background: var(--ivory); color: var(--black); border: 2px solid var(--black); }
     .form-control:focus { background: var(--ivory); color: var(--black); border-color: var(--black); box-shadow: none; }
     .form-control.invalid { border-width: 3px; }
@@ -68,18 +61,14 @@
     body.dark .error { color: var(--orange); }
         footer { background: var(--black); color: var(--ivory); }
 
-    /* Hide projects that do not match the filter */
     .hidden { display: none !important; }
 
-    /* Tablet and bigger screens */
     @media (min-width: 768px) { h1 { font-size: 3.8rem; } h2 { font-size: 2.4rem; } }
-    /* Large screens */
     @media (min-width: 992px) { h1 { font-size: 4.5rem; } section { padding-top: 4rem !important; padding-bottom: 4rem !important; } }
   </style>
 </head>
 <body>
 
-  <!-- Navigation bar -->
   <header class="sticky-top">
     <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
       <div class="container">
@@ -103,7 +92,6 @@
   </header>
 
   <main>
-    <!-- Home -->
     <section id="home" class="py-5">
       <div class="container">
         <div class="row align-items-center g-4">
@@ -128,7 +116,6 @@
       </div>
     </section>
 
-    <!-- Education (table) -->
     <section id="education" class="py-5 alt">
       <div class="container">
         <h2>Education</h2>
@@ -147,7 +134,6 @@
       </div>
     </section>
 
-    <!-- Skills -->
     <section id="skills" class="py-5">
       <div class="container">
         <h2>Skills</h2>
@@ -168,7 +154,6 @@
       </div>
     </section>
 
-    <!-- Projects -->
     <section id="projects" class="py-5 alt">
       <div class="container">
         <h2>Projects</h2>
@@ -214,7 +199,6 @@
       </div>
     </section>
 
-    <!-- Achievements -->
     <section id="achievements" class="py-5">
       <div class="container">
         <h2>Achievements</h2>
@@ -225,7 +209,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="py-5 alt">
       <div class="container">
         <h2>Contact</h2>
@@ -255,14 +238,11 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // 1. Dark mode button
     var themeBtn = document.getElementById("themeBtn");
     themeBtn.addEventListener("click", function () {
       document.body.classList.toggle("dark");
       themeBtn.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
     });
-
-    // 2. Project filter
     var filterButtons = document.querySelectorAll("#filterButtons button");
     var projects = document.querySelectorAll(".project");
 
@@ -270,7 +250,6 @@
       button.addEventListener("click", function () {
         var filter = button.dataset.filter;
 
-        // show which button is selected
         filterButtons.forEach(function (b) {
           b.classList.remove("active");
           b.classList.add("btn-outline-light");
@@ -278,7 +257,6 @@
         button.classList.add("active");
         button.classList.remove("btn-outline-light");
 
-        // show or hide each project
         projects.forEach(function (project) {
           var categories = project.dataset.category.split(" ");
           if (filter === "all" || categories.includes(filter)) {
@@ -289,8 +267,6 @@
         });
       });
     });
-
-    // 3. Contact form validation
     var form = document.getElementById("contactForm");
     var nameInput = document.getElementById("name");
     var emailInput = document.getElementById("email");
@@ -302,7 +278,6 @@
     messageInput.addEventListener("input", function () {
       count.textContent = messageInput.value.length + " / 300";
     });
-
 
     function showError(input, errorId, text) {
       document.getElementById(errorId).textContent = text;
@@ -332,7 +307,6 @@
       }
     }
 
-    // Send button click
     document.getElementById("sendBtn").addEventListener("click", sendMessage);
     // Enter key in the name and email boxes
     [nameInput, emailInput].forEach(function (box) {
@@ -340,7 +314,6 @@
         if (event.key === "Enter") { event.preventDefault(); sendMessage(); }
       });
     });
-    // normal form submit (just in case)
     form.addEventListener("submit", function (event) { event.preventDefault(); sendMessage(); });
   </script>
 </body>
